@@ -1,1 +1,1 @@
-from assemblyline.al.service.torrentslicer.torrentslicer import TorrentSlicer
+from al_services.alsvc_torrentslicer.torrentslicer import TorrentSlicer
