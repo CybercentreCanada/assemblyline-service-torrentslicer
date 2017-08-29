@@ -11,7 +11,7 @@ class TorrentSlicer(ServiceBase):
     SERVICE_CATEGORY = 'Static Analysis'
     SERVICE_ACCEPTS = 'meta/torrent'
     SERVICE_DESCRIPTION = "Extracts information from torrent files"
-    SERVICE_REVISION = ServiceBase.parse_revision('$Id: d3b3a708cba4bc9dab08efb7fb45c256abd4b923 $')
+    SERVICE_REVISION = ServiceBase.parse_revision('$Id$')
     SERVICE_VERSION = '1'
     SERVICE_ENABLED = True
     SERVICE_STAGE = 'CORE'
