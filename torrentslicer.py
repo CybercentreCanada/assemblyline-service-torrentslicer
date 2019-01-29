@@ -51,7 +51,29 @@ class TorrentSlicer(ServiceBase):
                       last_piece_size,
                       torrent_size,
                       torrent_type):
+        """Create result tables for torrent metadata, information and pieces.
 
+        Args:
+            infohash: Infohash.
+            announce: Announce list.
+            creation_date: Creation date.
+            comment: Comments.
+            created_by: Created by Field.
+            encoding: Encoding.
+            piece_length: Piece length.
+            private: Private.
+            name: File name.
+            sflength: Single file length.
+            sfmd5sum: Single file md5.
+            files: File list.
+            piecehashes: Piece hashes,
+            last_piece_size: Last piece size.
+            torrent_size: Torrent size.
+            torrent_type: Torrent type.
+
+        Returns:
+            Result dictionaries for torrent metadata, information and pieces.
+        """
         announce_str = ""
         for x in announce_list:
             for y in x:
@@ -103,6 +125,15 @@ class TorrentSlicer(ServiceBase):
         return meta, cal, des
 
     def run_tosl(self, filename, request):
+        """Parse, extract and report on torrent file metadata using bencode.
+
+        Args:
+            filename: Path to torrent file.
+            request: AL request object.
+
+        Returns:
+            None.
+        """
         file_res = request.result
 
         torrent_file = open(filename, "rb").read()
@@ -284,6 +315,7 @@ class TorrentSlicer(ServiceBase):
         file_res.add_result(tosl_res)
 
     def execute(self, request):
+        """Main Module. See README for details."""
         request.result = Result()
         local_path = request.download()
         self.run_tosl(local_path, request)
