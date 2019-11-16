@@ -1,0 +1,22 @@
+name: TorrentSlicer
+version: 1
+description: Extracts information from torrent files.
+
+accepts: meta/torrent
+rejects: empty|metadata/.*
+
+stage: CORE
+category: Static Analysis
+
+file_required: true
+timeout: 60
+disable_cache: false
+
+enabled: true
+is_external: false
+licence_count: 0
+
+docker_config:
+  image: cccs/assemblyline-service-torrentslicer:latest
+  cpu_cores: 1
+  ram_mb: 256
