@@ -192,7 +192,7 @@ class TorrentSlicer(ServiceBase):
             torrent_size += i['length']
             i['length'] = i['length']
             for j in range(len(i['path'])):
-                i['path'][j] = i['path'][j].decode("utf8")
+                i['path'][j] = i['path'][j]
 
         if torrent_size == 0:
             torrent_type = 'single file torrent'
