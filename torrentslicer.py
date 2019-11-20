@@ -6,6 +6,7 @@ import time
 
 import bencode
 import bitmath
+import simplejson as json
 
 from assemblyline_v4_service.common.base import ServiceBase
 from assemblyline_v4_service.common.result import Result, ResultSection, BODY_FORMAT
@@ -106,7 +107,7 @@ class TorrentSlicer(ServiceBase):
                     if k == "path":
                         for x in i:
                             path = str(x)
-                des.append(f"{path:100s} {bitmath.Byte(bytes=f['length']).best_prefix(system=bitmath.SI):10s} {fmd5:32s}")
+                des.append(f"{path:100s} {bitmath.Byte(bytes=f['length']).best_prefix(system=bitmath.SI)} {fmd5:32s}")
 
         return meta, cal, des
 
@@ -128,8 +129,8 @@ class TorrentSlicer(ServiceBase):
         try:
             metainfo = bencode.bdecode(torrent_file)
         except:
-            res = (ResultSection("This is not a valid *.torrent file"))
-            file_res.add_result(res)
+            res = ResultSection("This is not a valid *.torrent file")
+            file_res.add_section(res)
             return
 
         # Grab specific data from file
@@ -274,8 +275,8 @@ class TorrentSlicer(ServiceBase):
                 url_res.add_tag('network.uri', url)
 
         sha1_hashes = os.path.join(self.working_directory, "hash_of_pieces.json")
-        with open(sha1_hashes, "wb") as sha1_file:
-            sha1_file.write(json.dumps(piecehashes))
+        with open(sha1_hashes, "w") as sha1_file:
+            json.dump(piecehashes, sha1_file)
 
         request.add_supplementary(sha1_hashes, "hash_of_pieces.json",
                                   "List of hashes in order of the different pieces of the torrent (json)")
@@ -299,7 +300,7 @@ class TorrentSlicer(ServiceBase):
                         for x in i:
                             tosl_res.add_tag('file.name.extracted', str(x))
 
-        file_res.add_result(tosl_res)
+        file_res.add_section(tosl_res)
 
     def execute(self, request):
         """Main Module. See README for details."""

@@ -4,7 +4,8 @@ ENV SERVICE_PATH torrentslicer.TorrentSlicer
 
 RUN pip install \
   bencode.py \
-  bitmath
+  bitmath \
+  simplejson
 
 # Switch to assemblyline user
 USER assemblyline
