@@ -277,7 +277,8 @@ class TorrentSlicer(ServiceBase):
         with open(sha1_hashes, "wb") as sha1_file:
             sha1_file.write(json.dumps(piecehashes))
 
-        request.add_supplementary(sha1_hashes, "List of hashes in order of the different pieces of the torrent (json)")
+        request.add_supplementary(sha1_hashes, "hash_of_pieces.json",
+                                  "List of hashes in order of the different pieces of the torrent (json)")
 
         # Tags
         if len(announce) > 0:
