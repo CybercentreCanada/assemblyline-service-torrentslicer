@@ -272,7 +272,7 @@ class TorrentSlicer(ServiceBase):
                                      parent=tosl_res))
             for url in url_list:
                 url_res.add_line(url)
-                url_res.add_tag('network.uri', url)
+                url_res.add_tag('network.static.uri', url)
 
         sha1_hashes = os.path.join(self.working_directory, "hash_of_pieces.json")
         with open(sha1_hashes, "w") as sha1_file:
@@ -283,11 +283,11 @@ class TorrentSlicer(ServiceBase):
 
         # Tags
         if len(announce) > 0:
-            tosl_res.add_tag('network.uri', announce)
+            tosl_res.add_tag('network.static.uri', announce)
 
         for it in announce_list:
             for uri in it:
-                tosl_res.add_tag('network.uri', uri)
+                tosl_res.add_tag('network.static.uri', uri)
 
         if name != "":
             tosl_res.add_tag('file.name.extracted', name)
