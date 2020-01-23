@@ -18,5 +18,5 @@ licence_count: 0
 
 docker_config:
   image: cccs/assemblyline-service-torrentslicer:latest
-  cpu_cores: 1
+  cpu_cores: 0.5
   ram_mb: 256
