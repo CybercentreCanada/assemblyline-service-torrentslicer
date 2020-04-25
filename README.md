@@ -1,4 +1,4 @@
-# TorrentSlicer Static Service
+# TorrentSlicer Service
 
 Extracts information from torrent files with the help of bencode.bdecode
 
@@ -8,18 +8,18 @@ NOTE: This service does not require you to buy any licence and is preinstalled a
 ##### Result Output
 1.  Metadata:
 
-    ('*' Denotes an optional field in the torrent descriptor file. As a result it may be blank. Refer to the BitTorrent Specification.)
-        
     - InfoHash
     - Announce
-    - Announce List*
-    - Creation Date*
-    - Comment*
-    - Created By*
-    - Encoding*
     - Piece Length
-    - Private*
-    - Name*
+    
+    Optional 
+    - Announce List
+    - Creation Date
+    - Comment
+    - Created By
+    - Encoding
+    - Private
+    - Name
 
 2.  Calculated Data:
         
@@ -35,6 +35,7 @@ NOTE: This service does not require you to buy any licence and is preinstalled a
     - MD5Sum
 
 4. Url list (if found) in Metadata
+
 ##### Supplementary Files
 
 1. List of SHA1 hashes in order of the different pieces of the torrent (JSON)

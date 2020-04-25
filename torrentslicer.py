@@ -6,7 +6,6 @@ import time
 
 import bencode
 import bitmath
-import simplejson as json
 
 from assemblyline_v4_service.common.base import ServiceBase
 from assemblyline_v4_service.common.result import Result, ResultSection, BODY_FORMAT
@@ -86,8 +85,10 @@ class TorrentSlicer(ServiceBase):
         cal_dict = {
             'Type of Torrent:': torrent_type,
             'Number of Pieces:': str(len(piecehashes)),
-            'Last Piece Size:': f"{str(last_piece_size)} ({bitmath.Byte(bytes=last_piece_size).best_prefix(system=bitmath.SI)})",
-            'Size of Torrent:': f"{str(torrent_size)} ({bitmath.Byte(bytes=torrent_size).best_prefix(system=bitmath.SI)})",
+            'Last Piece Size:': f"{str(last_piece_size)} "
+            f"({bitmath.Byte(bytes=last_piece_size).best_prefix(system=bitmath.SI)})",
+            'Size of Torrent:': f"{str(torrent_size)} "
+            f"({bitmath.Byte(bytes=torrent_size).best_prefix(system=bitmath.SI)})",
         }
 
         cal = []
@@ -128,7 +129,7 @@ class TorrentSlicer(ServiceBase):
         # noinspection PyBroadException
         try:
             metainfo = bencode.bdecode(torrent_file)
-        except:
+        except Exception:
             res = ResultSection("This is not a valid *.torrent file")
             file_res.add_section(res)
             return

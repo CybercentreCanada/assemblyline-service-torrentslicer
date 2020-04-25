@@ -7,8 +7,7 @@ USER assemblyline
 
 RUN pip install --no-cache-dir --user \
   bencode.py \
-  bitmath \
-  simplejson && rm -rf ~/.cache/pip
+  bitmath  && rm -rf ~/.cache/pip
 
 # Copy TorrentSlicer service code
 WORKDIR /opt/al_service
