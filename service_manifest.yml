@@ -1,5 +1,5 @@
 name: TorrentSlicer
-version: 1
+version: $SERVICE_TAG
 description: Extracts information from torrent files.
 
 accepts: meta/torrent
@@ -17,6 +17,6 @@ is_external: false
 licence_count: 0
 
 docker_config:
-  image: ${REGISTRY}cccs/assemblyline-service-torrentslicer:latest
+  image: ${REGISTRY}cccs/assemblyline-service-torrentslicer:$SERVICE_TAG
   cpu_cores: 0.5
   ram_mb: 256
