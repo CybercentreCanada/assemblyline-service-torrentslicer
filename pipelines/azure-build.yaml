@@ -24,6 +24,7 @@ stages:
     - script: |
         set -xv  # Echo commands before they are run
         export TAG=${BUILD_SOURCEBRANCH#"refs/tags/v"}
-        docker build --build-arg version=$TAG -t cccs/assemblyline-service-torrentslicer:$TAG -t cccs/assemblyline-service-torrentslicer:latest .
+        if [[ "$TAG" == *stable* ]]; then export BUILD_TYPE=stable; else export BUILD_TYPE=latest; fi
+        docker build --build-arg version=$TAG -t cccs/assemblyline-service-torrentslicer:$TAG -t cccs/assemblyline-service-torrentslicer:$BUILD_TYPE .
         docker push cccs/assemblyline-service-torrentslicer
       displayName: Deploy to Docker Hub
