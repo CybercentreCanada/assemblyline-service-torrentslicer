@@ -277,7 +277,8 @@ class TorrentSlicer(ServiceBase):
 
         sha1_hashes = os.path.join(self.working_directory, "hash_of_pieces.json")
         with open(sha1_hashes, "w") as sha1_file:
-            json.dump(piecehashes, sha1_file)
+            # Decode byte hashes into strings
+            json.dump([b.decode() for b in piecehashes], sha1_file)
 
         request.add_supplementary(sha1_hashes, "hash_of_pieces.json",
                                   "List of hashes in order of the different pieces of the torrent (json)")
@@ -294,12 +295,12 @@ class TorrentSlicer(ServiceBase):
             tosl_res.add_tag('file.name.extracted', name)
 
         for f in files:
-                for k, i in f.items():
-                    # if k == "hash" and len(k) > 0:
-                    #     tosl_res.add_tag(TAG_TYPE['FILE_MD5'], i)
-                    if k == "path" and len(k) > 0:
-                        for x in i:
-                            tosl_res.add_tag('file.name.extracted', str(x))
+            for k, i in f.items():
+                # if k == "hash" and len(k) > 0:
+                #     tosl_res.add_tag(TAG_TYPE['FILE_MD5'], i)
+                if k == "path" and len(k) > 0:
+                    for x in i:
+                        tosl_res.add_tag('file.name.extracted', str(x))
 
         file_res.add_section(tosl_res)
 
