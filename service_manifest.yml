@@ -2,7 +2,7 @@ name: TorrentSlicer
 version: $SERVICE_TAG
 description: Extracts information from torrent files.
 
-accepts: meta/torrent
+accepts: application/torrent
 rejects: empty|metadata/.*
 
 stage: CORE
