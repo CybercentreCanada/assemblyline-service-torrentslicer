@@ -12,7 +12,7 @@
             "cwd": "${workspaceFolder}",
             "args": [
                 "-d",
-                "torrentslicer.torrentslicer.Torrentslicer",
+                "torrentslicer.torrentslicer.TorrentSlicer",
                 "${file}"
             ],
             "justMyCode": false,
