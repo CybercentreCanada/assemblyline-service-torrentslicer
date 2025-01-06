@@ -1,0 +1,97 @@
+{
+  "extra": {
+    "drop_file": false,
+    "score": 0,
+    "sections": [
+      {
+        "auto_collapse": false,
+        "body": "NOTE: '*' Denotes an optional field in the Torrent Descriptor File. As a result it may be blank. Refer to the BitTorrent Specification.\n",
+        "body_config": {},
+        "body_format": "TEXT",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {
+          "file": {
+            "name": {
+              "extracted": [
+                "MiSide.0.91F.7z"
+              ]
+            }
+          },
+          "network": {
+            "static": {
+              "uri": [
+                "http://bt.t-ru.org/ann",
+                "http://retracker.local/announce"
+              ]
+            }
+          }
+        },
+        "title_text": "Torrent File Details",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": "Announce List*:      http://bt.t-ru.org/ann http://retracker.local/announce \nAnnounce:            http://bt.t-ru.org/ann\nComment*:            https://rutracker.org/forum/viewtopic.php?t=6612201\nCreated By*:         qBittorrent v4.6.2\nCreation Date*:      1735168164 (2024-12-25 23:09:24)\nEncoding*:           \nInfoHash:            e3fd306ba931435e07effe4c698880a194b5cc14\nName*:               MiSide.0.91F.7z\nPiece Length:        4194304 (4.194304 MB)\nPrivate*:            ",
+        "body_config": {},
+        "body_format": "MEMORY_DUMP",
+        "classification": "TLP:C",
+        "depth": 1,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {},
+        "title_text": "Meta Data:",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": "NOTE: the length of last piece is calculated as:(number of pieces X piece length) - size of torrent\n\nLast Piece Size:   3439103 (3.439103 MB)\nNumber of Pieces:  204\nSize of Torrent:   852198913 (852.198913 MB)\nType of Torrent:   single file torrent",
+        "body_config": {},
+        "body_format": "MEMORY_DUMP",
+        "classification": "TLP:C",
+        "depth": 1,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {},
+        "title_text": "Calculated Data:",
+        "zeroize_on_tag_safe": false
+      }
+    ]
+  },
+  "files": {
+    "extracted": [],
+    "supplementary": [
+      {
+        "name": "hash_of_pieces.json",
+        "sha256": "ee5c8ecfc1ddd36a65aaf43f6ab52da0c2f2e32994b0b55d828621809ee67888"
+      }
+    ]
+  },
+  "results": {
+    "heuristics": [],
+    "tags": {
+      "file.name.extracted": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "MiSide.0.91F.7z"
+        }
+      ],
+      "network.static.uri": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "http://bt.t-ru.org/ann"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "http://retracker.local/announce"
+        }
+      ]
+    },
+    "temp_submission_data": {}
+  }
+}
