@@ -8,15 +8,15 @@
       "__svc_name": "torrentslicer",
       "__repository": "assemblyline-service-torrentslicer",
       "__pkg_name": "torrentslicer",
-      "__class_name": "Torrentslicer",
       "short_description": "Extracts information from torrent files with the help of `bencode`.",
-      "short_description_fr": "Extrait les informations des fichiers torrent à l'aide de `bencode`.",
+      "short_description_fr": "Extrait les informations des fichiers torrent \u00e0 l'aide de `bencode`.",
       "stage": "CORE",
       "category": "Static Analysis",
       "org_name_full": "CybercentreCanada",
       "org_name_short": "cccs",
       "license": "mit",
-      "_template": "https://github.com/CybercentreCanada/assemblyline-service-template.git"
+      "_template": "https://github.com/CybercentreCanada/assemblyline-service-template.git",
+      "class_name": "Torrentslicer"
     }
   },
   "directory": null
